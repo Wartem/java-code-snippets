@@ -3,17 +3,6 @@ import java.util.*;
 
 public class Snippets {
 
-    public static void reverseString(String string){
-        StringBuilder stringBuilder = new StringBuilder();
-
-        char[] stringChars = string.toCharArray();
-        for (int counter = stringChars.length - 1; counter >= 0; counter--) {
-            stringBuilder.append(stringChars[counter]);
-        }
-        System.out.println("Reverse string:");
-        System.out.println("\"" + string + "\" reversed is \"" + stringBuilder +"\"");
-    }
-
     public static void swapNumbers(int a, int b){
         System.out.println("Swap numbers:");
         System.out.println("a = " + a +". " + "b = " + b);
@@ -23,15 +12,16 @@ public class Snippets {
         System.out.println("After swap: a = " + a +". " + "b = " + b);
     }
 
-    public static void stringContainsVowel(String string){
-        System.out.println(
-        string.toLowerCase().matches(".*[aeiou].*") ? "True" : "False");
+    public static long factorial(long num) {
+        return (num == 1) ?
+                1 :
+                num * factorial(num - 1);
     }
 
     /**
-    * @param number is True if it's greater than 1 and only dividable with itself or 1,
-    * without leaving a remainder.
-    */
+     * @param number is True if it's greater than 1 and only dividable with itself or 1,
+     * without leaving a remainder.
+     */
     public static void isNumberPrime(long number){
 
         if (number == 0 || number == 1) {
@@ -67,31 +57,6 @@ public class Snippets {
         return getFibonacciNumber(num-1) + getFibonacciNumber(num-2);
     }
 
-    public static void removeWhiteSpaces(String string){
-        String noWhiteSpace = "";
-        for(char c : string.toCharArray()){
-            noWhiteSpace = noWhiteSpace.concat(Character.isWhitespace(c) ? "" : Character.toString(c));
-        }
-        System.out.println(noWhiteSpace);
-    }
-
-    public static void sortArray(){
-        int[] array = {24, -11, 73, 2, -66, -36, -84, 9};
-        Arrays.sort(array);
-        System.out.println(Arrays.toString(array));
-    }
-
-    public static long factorial(long num) {
-        return (num == 1) ? 1 : num * factorial(num - 1);
-    }
-
-    public static void reverseLinkedList(LinkedList<String> linkedList) {
-        Iterator<String> iterator = linkedList.descendingIterator();
-        while (iterator.hasNext()) {
-            System.out.print(iterator.next() + " ");
-        }
-    }
-
     public static void findTheNextLowestNumber(long[] array){
         long lowestNum = Long.MAX_VALUE;
         long secondLowestNum = Long.MAX_VALUE;
@@ -108,13 +73,46 @@ public class Snippets {
         System.out.println("The lowest number is " + lowestNum);
     }
 
+    public static void removeWhiteSpaces(String string){
+        String noWhiteSpace = "";
+        for(char c : string.toCharArray()){
+            noWhiteSpace = noWhiteSpace.concat(Character.isWhitespace(c) ? "" : Character.toString(c));
+        }
+        System.out.println(noWhiteSpace);
+    }
+
+    public static void reverseString(String string){
+        StringBuilder stringBuilder = new StringBuilder();
+
+        char[] stringChars = string.toCharArray();
+        for (int counter = stringChars.length - 1; counter >= 0; counter--) {
+            stringBuilder.append(stringChars[counter]);
+        }
+        System.out.println("Reverse string:");
+        System.out.println("\"" + string + "\" reversed is \"" + stringBuilder +"\"");
+    }
+
+    public static void stringContainsVowel(String string){
+        System.out.println(
+                string.toLowerCase().matches(".*[aeiou].*") ? "True" : "False");
+    }
+
     public static void checkIfStringContainsAnotherString(String string, String substring) {
         System.out.println("Does '" + string + "' contains '" + substring + "'?");
         System.out.println(string.contains(substring) ? "Yes" : "No");
     }
 
-    public static String getTodaysDate(){
-        return (new SimpleDateFormat("dd-MM-yyyy")).format(new Date());
+    public static void sortArray(){
+        int[] array = {24, -11, 73, 2, -66, -36, -84, 9};
+        Arrays.sort(array);
+        System.out.println(Arrays.toString(array));
+    }
+
+    public static void reverseLinkedList(LinkedList<String> linkedList) {
+        Iterator<String> iterator = linkedList.descendingIterator();
+        while (iterator.hasNext()) {
+            System.out.print(iterator.next() + " ");
+        }
     }
 
     public static void mergeTwoArrayLists() {
@@ -127,5 +125,10 @@ public class Snippets {
         arrayList2.add("idag");
         arrayList1.addAll(arrayList2);
         System.out.println(arrayList1);
+    }
+
+    public static String getTodaysDate(){
+        return (new SimpleDateFormat("dd-MM-yyyy")).
+                format(new Date());
     }
 }
