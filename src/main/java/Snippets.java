@@ -4,12 +4,11 @@ import java.util.*;
 public class Snippets {
 
     public static void swapNumbers(int a, int b){
-        System.out.println("Swap numbers:");
-        System.out.println("a = " + a +". " + "b = " + b);
+        Main.println("a = " + a +". " + "b = " + b);
         a = a + b;
         b = a - b;
         a = a - b;
-        System.out.println("After swap: a = " + a +". " + "b = " + b);
+        Main.println("After swap: a = " + a +". " + "b = " + b);
     }
 
     public static long factorial(long num) {
@@ -18,33 +17,27 @@ public class Snippets {
                 num * factorial(num - 1);
     }
 
+    public static void isNumberPrime(long number){
+        Main.println(isNumberPrimeCalc(number) ?
+                "Yes, " + number + " is a prime" :
+                "No, " + number + " is not a prime");
+    }
+
     /**
      * @param number is True if it's greater than 1 and only dividable with itself or 1,
      * without leaving a remainder.
      */
-    public static void isNumberPrime(long number){
-
-        if (number == 0 || number == 1) {
-            System.out.println(number + " is NOT a prime.");
-        }else
-
-        if (number == 2) {
-            System.out.println(number + " IS a prime.");
-        }else {
-
-            boolean nonPrimeDetected = false;
+    public static boolean isNumberPrimeCalc(long number){
+        if (number == 0 || number == 1) return false;
+        if (number == 2) return true;
 
             for (int i = 2; i <= number / 2; i++) {
                 if (number % i == 0) {
-                    nonPrimeDetected = true;
-                    break;
+                    return false;
                 }
             }
-            System.out.println(nonPrimeDetected ?
-                    number + " is NOT a prime." :
-                    number + " IS a prime.");
+            return true;
         }
-    }
 
     /**
      * The Fibonacci sequence.
@@ -69,8 +62,8 @@ public class Snippets {
                 secondLowestNum = num;
             }
         }
-        System.out.println("The second lowest number is " + secondLowestNum);
-        System.out.println("The lowest number is " + lowestNum);
+        Main.println("The second lowest number is " + secondLowestNum);
+        Main.println("The lowest number is " + lowestNum);
     }
 
     public static void removeWhiteSpaces(String string){
@@ -78,7 +71,7 @@ public class Snippets {
         for(char c : string.toCharArray()){
             noWhiteSpace = noWhiteSpace.concat(Character.isWhitespace(c) ? "" : Character.toString(c));
         }
-        System.out.println(noWhiteSpace);
+        Main.println(noWhiteSpace);
     }
 
     public static void reverseString(String string){
@@ -88,24 +81,24 @@ public class Snippets {
         for (int counter = stringChars.length - 1; counter >= 0; counter--) {
             stringBuilder.append(stringChars[counter]);
         }
-        System.out.println("Reverse string:");
-        System.out.println("\"" + string + "\" reversed is \"" + stringBuilder +"\"");
+        Main.println("Reverse string:");
+        Main.println("\"" + string + "\" reversed is \"" + stringBuilder +"\"");
     }
 
     public static void stringContainsVowel(String string){
-        System.out.println(
+        Main.println(
                 string.toLowerCase().matches(".*[aeiou].*") ? "True" : "False");
     }
 
     public static void checkIfStringContainsAnotherString(String string, String substring) {
-        System.out.println("Does '" + string + "' contains '" + substring + "'?");
-        System.out.println(string.contains(substring) ? "Yes" : "No");
+        Main.println("Does '" + string + "' contains '" + substring + "'?");
+        Main.println(string.contains(substring) ? "Yes" : "No");
     }
 
     public static void sortArray(){
         int[] array = {24, -11, 73, 2, -66, -36, -84, 9};
         Arrays.sort(array);
-        System.out.println(Arrays.toString(array));
+        Main.println(Arrays.toString(array));
     }
 
     public static void reverseLinkedList(LinkedList<String> linkedList) {

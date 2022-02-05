@@ -2,11 +2,11 @@ import java.util.LinkedList;
 
 public class Main {
 
-    private static void println(){
+    public static void println(){
         System.out.println();
     }
 
-    private static void println(String string){
+    public static void println(String string){
         System.out.println(string);
     }
 
@@ -21,10 +21,13 @@ public class Main {
         println(String.valueOf(Snippets.factorial(10)));
         println();
 
-        println("Is Number Prime:");
+        println("Is Number A Prime:");
         //snippets.isNumberPrime(902424943);
         Snippets.isNumberPrime(4253);
         Snippets.isNumberPrime(7841);
+        Snippets.isNumberPrime(62189);
+        Snippets.isNumberPrime(672);
+
         println();
 
         println("Fibonacci results:");
